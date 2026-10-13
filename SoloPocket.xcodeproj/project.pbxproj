@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0491B6928F52E9F301F83697 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 85A62DEE2145EAEC22C8D6F6 /* GoogleSignIn */; };
+		3F6D7DC2B91324DDA95FF55C /* sessions.csv in Resources */ = {isa = PBXBuildFile; fileRef = 67A64E0AEB503BBE5CABFD89 /* sessions.csv */; };
+		96F74BBE121D11AADFAF3161 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2E18286DFE06BA6515D0B /* Views.swift */; };
+		9BA61C144C1757848050DE73 /* SoloCore in Frameworks */ = {isa = PBXBuildFile; productRef = B5BD3B2D2AE9907B4BC54933 /* SoloCore */; };
+		C2A88BA75998A4CD934B5904 /* SoloPocketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544B304A8A302F9158B4CD7F /* SoloPocketApp.swift */; };
+		D70B1526B0F59CA4AE7A97B3 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A4FC2E6788CC52CD009FC7F2 /* GoogleSignInSwift */; };
+		F0E985D66F4C9CB819B9C106 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FD728F76EC50F788E62922 /* AppModel.swift */; };
+		F8DC8F9B41651D61AA9DB1CC /* GoogleAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD443931C097F15D812D59 /* GoogleAccount.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		011D39A511BDCCAA1039B743 /* SoloPocket.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SoloPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2528CCE04AF347719B016D5D /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
+		405AAF08494627793A53AD1B /* SoloPhone */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SoloPhone; path = .; sourceTree = SOURCE_ROOT; };
+		44FD728F76EC50F788E62922 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		544B304A8A302F9158B4CD7F /* SoloPocketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloPocketApp.swift; sourceTree = "<group>"; };
+		54B2E18286DFE06BA6515D0B /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		67A64E0AEB503BBE5CABFD89 /* sessions.csv */ = {isa = PBXFileReference; path = sessions.csv; sourceTree = "<group>"; };
+		D4CD443931C097F15D812D59 /* GoogleAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAccount.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26ABF8AA9DA51742FFEEED72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BA61C144C1757848050DE73 /* SoloCore in Frameworks */,
+				0491B6928F52E9F301F83697 /* GoogleSignIn in Frameworks */,
+				D70B1526B0F59CA4AE7A97B3 /* GoogleSignInSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08CB6B6241A705A17F0464B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				011D39A511BDCCAA1039B743 /* SoloPocket.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D83B08B859171CB3A295DD2 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				405AAF08494627793A53AD1B /* SoloPhone */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		4CFD498613681F0A1DFE6168 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2528CCE04AF347719B016D5D /* Local.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		51AADDE9E177A72AC4E7627B /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				67A64E0AEB503BBE5CABFD89 /* sessions.csv */,
+			);
+			name = Fixtures;
+			path = Tests/SoloCoreTests/Fixtures;
+			sourceTree = "<group>";
+		};
+		63850AF902AC77D80179C0DE = {
+			isa = PBXGroup;
+			children = (
+				C0EB415DA33B8C24009EC676 /* App */,
+				4CFD498613681F0A1DFE6168 /* Config */,
+				51AADDE9E177A72AC4E7627B /* Fixtures */,
+				0D83B08B859171CB3A295DD2 /* Packages */,
+				08CB6B6241A705A17F0464B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C0EB415DA33B8C24009EC676 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				44FD728F76EC50F788E62922 /* AppModel.swift */,
+				D4CD443931C097F15D812D59 /* GoogleAccount.swift */,
+				544B304A8A302F9158B4CD7F /* SoloPocketApp.swift */,
+				54B2E18286DFE06BA6515D0B /* Views.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17D5560396E87B87B0145658 /* SoloPocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 601B0276A1E6F5FA071850B6 /* Build configuration list for PBXNativeTarget "SoloPocket" */;
+			buildPhases = (
+				8255313AC83C37163118CA13 /* Sources */,
+				71AD6BEAC3A594EB8C3397DB /* Resources */,
+				26ABF8AA9DA51742FFEEED72 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoloPocket;
+			packageProductDependencies = (
+				B5BD3B2D2AE9907B4BC54933 /* SoloCore */,
+				85A62DEE2145EAEC22C8D6F6 /* GoogleSignIn */,
+				A4FC2E6788CC52CD009FC7F2 /* GoogleSignInSwift */,
+			);
+			productName = SoloPocket;
+			productReference = 011D39A511BDCCAA1039B743 /* SoloPocket.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DCB819ED327A4A01133EF25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					17D5560396E87B87B0145658 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 38A60E647DB3A35F6CE6BBD8 /* Build configuration list for PBXProject "SoloPocket" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 63850AF902AC77D80179C0DE;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9A69B48472B616109F3C659D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				D6ECB2BC400F21D97EB14F5D /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 08CB6B6241A705A17F0464B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17D5560396E87B87B0145658 /* SoloPocket */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71AD6BEAC3A594EB8C3397DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6D7DC2B91324DDA95FF55C /* sessions.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8255313AC83C37163118CA13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0E985D66F4C9CB819B9C106 /* AppModel.swift in Sources */,
+				F8DC8F9B41651D61AA9DB1CC /* GoogleAccount.swift in Sources */,
+				C2A88BA75998A4CD934B5904 /* SoloPocketApp.swift in Sources */,
+				96F74BBE121D11AADFAF3161 /* Views.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		121EF82ECA008F57F6C4B7B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 5;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				GOOGLE_CLIENT_ID = "";
+				GOOGLE_REVERSED_CLIENT_ID = "solo-pocket-unconfigured";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tom.solo.pocket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		320AF7CC07C337F8F1517C8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 5;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				GOOGLE_CLIENT_ID = "";
+				GOOGLE_REVERSED_CLIENT_ID = "solo-pocket-unconfigured";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tom.solo.pocket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		34EC177CE33EF98F2AF1FC29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2528CCE04AF347719B016D5D /* Local.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		56763C850E6AAFAC42B30260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2528CCE04AF347719B016D5D /* Local.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38A60E647DB3A35F6CE6BBD8 /* Build configuration list for PBXProject "SoloPocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				320AF7CC07C337F8F1517C8C /* Debug */,
+				121EF82ECA008F57F6C4B7B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		601B0276A1E6F5FA071850B6 /* Build configuration list for PBXNativeTarget "SoloPocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34EC177CE33EF98F2AF1FC29 /* Debug */,
+				56763C850E6AAFAC42B30260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D6ECB2BC400F21D97EB14F5D /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A69B48472B616109F3C659D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = exactVersion;
+				version = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		85A62DEE2145EAEC22C8D6F6 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A69B48472B616109F3C659D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		A4FC2E6788CC52CD009FC7F2 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A69B48472B616109F3C659D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		B5BD3B2D2AE9907B4BC54933 /* SoloCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SoloCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 9DCB819ED327A4A01133EF25 /* Project object */;
+}

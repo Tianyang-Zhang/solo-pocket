@@ -1,0 +1,4 @@
+// Fill in the iOS OAuth client from your own Google Cloud project.
+// Client IDs are public identifiers, never put an Apple/Google password here.
+GOOGLE_CLIENT_ID =
+GOOGLE_REVERSED_CLIENT_ID = solo-pocket-unconfigured

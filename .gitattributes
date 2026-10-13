@@ -1,0 +1,2 @@
+# Preserve the device-style CRLF fixture and allow its carriage returns.
+Tests/SoloCoreTests/Fixtures/sessions.csv -text whitespace=cr-at-eol
