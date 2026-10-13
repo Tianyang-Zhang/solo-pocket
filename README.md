@@ -8,7 +8,7 @@
 
 ### 当前版本与适用范围
 
-**0.1.5 已取消设备名称绑定。** 连接你的 Solo Wi-Fi 即可读取，不需要改设备名或登记序列号。此前 0.1.4 已在作者的 iPhone 和 Solo 2 上实测；0.1.5 的自动化测试和安装包检查见版本说明。
+**当前版本为 0.1.5，已取消设备名称绑定。** 连接你的 Solo Wi-Fi 即可读取，不需要改设备名或登记序列号。自动化测试、安装包检查和实机验证范围见[版本说明](docs/RELEASE-0.1.5.md)。
 
 - 原生 iPhone App，最低 iOS 17；界面目前为中文。
 - 适用于使用兼容 Wi-Fi 下载协议的 Solo。通过手机系统选择设备的 Wi-Fi，程序访问其默认接入点地址 `10.0.0.1`。任意设备名均可，包括中文名称。
@@ -122,7 +122,7 @@ Google Drive 无需配置即可完成以上步骤。当前包显示 Google Drive
 
 ### Current release and compatibility
 
-**0.1.5 removes the device-name restriction.** Join your Solo Wi-Fi and read sessions without renaming the device or registering its serial number. Version 0.1.4 was physically tested with the author's iPhone and Solo 2; see the release notes for 0.1.5 automated tests and package validation.
+**The current release is 0.1.5, which removes the device-name restriction.** Join your Solo Wi-Fi and read sessions without renaming the device or registering its serial number. See the [release notes](docs/RELEASE-0.1.5.md) for automated tests, package checks and the scope of physical-device validation.
 
 - Native iPhone app, requiring iOS 17 or later. The app interface is currently in Chinese.
 - Intended for Solo devices using a compatible Wi-Fi download protocol. Choose the device network in iPhone Settings; the app connects to its default access-point address, `10.0.0.1`. Any custom device name is accepted, including non-Latin names.
