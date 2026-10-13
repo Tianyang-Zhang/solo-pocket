@@ -44,7 +44,7 @@ import SoloCore
             }
         }
         if demo, let url = Bundle.main.url(forResource: "sessions", withExtension: "csv") {
-            do { sessions = try Session.parse(Data(contentsOf: url)); status = "演示模式 · 使用已验证的设备列表，不连接 Solo" }
+            do { sessions = try Session.parse(Data(contentsOf: url)); status = "演示模式 · 使用虚构 session，不连接 Solo" }
             catch { self.error = error.localizedDescription }
         }
     }
@@ -109,7 +109,7 @@ import SoloCore
     func scan() {
         guard !demo else { return }
         run {
-            self.status = "正在连接 Solo 2 Tom…"
+            self.status = "正在连接当前 Wi-Fi 上的 Solo…"
             let trace = try self.beginConnectionLog("scan")
             self.sessions = try await SoloClient(trace: trace).sessions()
             self.selected = self.selected.intersection(Set(self.visibleSessions.map(\.id)))

@@ -20,10 +20,10 @@
 /* Begin PBXFileReference section */
 		011D39A511BDCCAA1039B743 /* SoloPocket.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SoloPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2528CCE04AF347719B016D5D /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
-		405AAF08494627793A53AD1B /* SoloPhone */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SoloPhone; path = .; sourceTree = SOURCE_ROOT; };
 		44FD728F76EC50F788E62922 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		544B304A8A302F9158B4CD7F /* SoloPocketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloPocketApp.swift; sourceTree = "<group>"; };
 		54B2E18286DFE06BA6515D0B /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		57322ED04D06F44D7EBD07C4 /* solo-pocket */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "solo-pocket"; path = .; sourceTree = SOURCE_ROOT; };
 		67A64E0AEB503BBE5CABFD89 /* sessions.csv */ = {isa = PBXFileReference; path = sessions.csv; sourceTree = "<group>"; };
 		D4CD443931C097F15D812D59 /* GoogleAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,7 +53,7 @@
 		0D83B08B859171CB3A295DD2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				405AAF08494627793A53AD1B /* SoloPhone */,
+				57322ED04D06F44D7EBD07C4 /* solo-pocket */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -236,7 +236,7 @@
 				GOOGLE_CLIENT_ID = "";
 				GOOGLE_REVERSED_CLIENT_ID = "solo-pocket-unconfigured";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 0.1.4;
+				MARKETING_VERSION = 0.1.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tom.solo.pocket;
@@ -284,7 +284,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -306,7 +306,7 @@
 				GOOGLE_CLIENT_ID = "";
 				GOOGLE_REVERSED_CLIENT_ID = "solo-pocket-unconfigured";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 0.1.4;
+				MARKETING_VERSION = 0.1.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

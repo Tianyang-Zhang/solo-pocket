@@ -130,7 +130,8 @@ public struct SoloClient: Sendable {
         SoloSocket(port: port, udp: udp, host: host, trace: trace)
     }
     /// Reuse the user-validated TCP preflight automatically before discovery.
-    /// No Solo commands are sent until device-name validation in discover().
+    /// Discovery is independent of owner-supplied names. SoloTransfer validates
+    /// the protocol handshake before any list or download command is sent.
     public func checkLocalConnection() async throws {
         let paths = SoloPathDiagnostics(trace: trace); defer { paths.stop() }
         trace("phase", "正在连接 Solo；如出现本地网络弹窗，请点允许，随后会自动继续")
@@ -143,10 +144,14 @@ public struct SoloClient: Sendable {
         let socket = socket(port: discoveryPort, udp: true); defer { socket.close() }
         try await socket.connect(timeout: 25); try await socket.send(Data("aim-ka".utf8), timeout: 25)
         let response = try await socket.datagram()
-        guard response.range(of: Data("Solo 2 Tom".utf8)) != nil || response.range(of: "Solo 2 Tom".data(using: .utf16LittleEndian)!) != nil else {
-            throw SoloError.invalid("设备名称与 Solo 2 Tom 不符，已停止连接")
+        // AiM discovery may include arbitrary custom names and binary fields.
+        // Do not infer compatibility from a name, model label or text encoding.
+        // The connected UDP socket only receives from the selected host/port;
+        // the subsequent TCP handshake and framed transfer validate the protocol.
+        guard !response.isEmpty else {
+            throw SoloError.invalid("设备发现回应为空，请确认已连接 Solo 的 Wi-Fi")
         }
-        trace("discovery.matched", "收到 \(response.count) 字节回应，设备名符合 Solo 2 Tom")
+        trace("discovery.received", "收到 \(response.count) 字节回应；不限制设备名称，后续通过协议握手验证")
     }
     private func heartbeat() -> Task<Void, Never> {
         Task {
@@ -163,7 +168,7 @@ public struct SoloClient: Sendable {
         try await checkLocalConnection()
         try await discover()
         let keepAlive = heartbeat(); defer { keepAlive.cancel() }
-        trace("phase", "已找到 Solo，正在建立数据连接")
+        trace("phase", "设备已回应，正在验证 Solo 数据连接")
         let socket = socket(port: transferPort); defer { socket.close() }
         try await Task.sleep(for: .milliseconds(300)); try await socket.connect()
         var result = Data()
@@ -179,7 +184,7 @@ public struct SoloClient: Sendable {
         try await checkLocalConnection()
         try await discover()
         let keepAlive = heartbeat(); defer { keepAlive.cancel() }
-        trace("phase", "已找到 Solo，正在建立下载连接")
+        trace("phase", "设备已回应，正在验证 Solo 下载连接")
         let socket = socket(port: transferPort); defer { socket.close() }
         let partial = target.appendingPathExtension("partial")
         let manager = FileManager.default

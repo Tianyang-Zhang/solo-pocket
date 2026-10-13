@@ -11,7 +11,8 @@ private final class LocalSoloPeer: @unchecked Sendable {
     private var connections: [NWConnection] = []
     private var tcpCount = 0
 
-    func start(ready: XCTestExpectation, emptyProbe: XCTestExpectation, transfer: XCTestExpectation, csv: Data) {
+    func start(ready: XCTestExpectation, emptyProbe: XCTestExpectation, transfer: XCTestExpectation,
+               csv: Data, discoveryReply: Data) {
         tcp.stateUpdateHandler = { if case .ready = $0 { ready.fulfill() } }
         udp.stateUpdateHandler = { if case .ready = $0 { ready.fulfill() } }
         tcp.newConnectionHandler = { [self] connection in
@@ -43,7 +44,7 @@ private final class LocalSoloPeer: @unchecked Sendable {
                 XCTAssertNil(error)
                 XCTAssertGreaterThan(self.tcpCount, 0, "Reading must perform TCP preflight without a separate user action")
                 XCTAssertEqual(data, Data("aim-ka".utf8))
-                connection.send(content: Data("Solo 2 Tom".utf8), completion: .contentProcessed { _ in connection.cancel() })
+                connection.send(content: discoveryReply, completion: .contentProcessed { _ in connection.cancel() })
             }
         }
         tcp.start(queue: queue); udp.start(queue: queue)
@@ -66,12 +67,28 @@ private final class LocalSoloPeer: @unchecked Sendable {
 
 final class ClientWorkflowTests: XCTestCase {
     func testReadAndDownloadAutomaticallyPreflightThenContinue() async throws {
+        try await readAndDownload(discoveryReply: Data("Solo 2 Tom".utf8))
+    }
+    func testReadAndDownloadWithArbitraryCustomDeviceName() async throws {
+        // A valid user-chosen name need not contain "Solo", an owner's name,
+        // a serial number, or any Latin characters.
+        try await readAndDownload(discoveryReply: Data("车手甲的计时器".utf8))
+    }
+    func testReadAndDownloadWithUTF16DeviceName() async throws {
+        try await readAndDownload(discoveryReply: try XCTUnwrap("SOLO 2 DL - Paddock".data(using: .utf16LittleEndian)))
+    }
+    func testDiscoveryEncodingDoesNotReplaceProtocolValidation() async throws {
+        // Discovery is opaque. Compatibility is established by the TCP
+        // handshake and framed responses, not by guessing a name encoding.
+        try await readAndDownload(discoveryReply: Data([0xff, 0x80, 0x01, 0x00]))
+    }
+    private func readAndDownload(discoveryReply: Data) async throws {
         let ready = expectation(description: "Both listeners ready"); ready.expectedFulfillmentCount = 2
         let probes = expectation(description: "Read and download each automatically preflight"); probes.expectedFulfillmentCount = 2
         let transfers = expectation(description: "Both operations continue without a second user action"); transfers.expectedFulfillmentCount = 2
         let csv = Data("name,size,date,hour,nlap,best,track_name,test_dur\na_0001.xrz,3,11/10/2026,12:00:00,2,36546,Kinsmen,60000\n".utf8)
         let peer = LocalSoloPeer(); defer { peer.stop() }
-        peer.start(ready: ready, emptyProbe: probes, transfer: transfers, csv: csv)
+        peer.start(ready: ready, emptyProbe: probes, transfer: transfers, csv: csv, discoveryReply: discoveryReply)
         await fulfillment(of: [ready], timeout: 3)
         let client = SoloClient(host: "127.0.0.1", transferPort: try XCTUnwrap(peer.tcp.port).rawValue,
                                 discoveryPort: try XCTUnwrap(peer.udp.port).rawValue)

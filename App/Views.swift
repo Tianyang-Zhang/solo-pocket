@@ -36,10 +36,10 @@ struct DeviceView: View {
             List {
                 Section {
                     VStack(alignment: .leading, spacing: 12) {
-                        Label(model.demo ? "演示列表" : "Solo 2 Tom", systemImage: "stopwatch").font(.title2.bold())
+                        Label(model.demo ? "演示列表" : "连接 Solo", systemImage: "stopwatch").font(.title2.bold())
                         Text(model.status).font(.subheadline).foregroundStyle(.secondary)
                         if model.sessions.isEmpty {
-                            Text("在 iPhone 设置中连接\nAiM-SOLO2-012307-Solo 2 Tom\n然后返回这里读取列表。")
+                            Text("在 iPhone 设置中连接你的 Solo 显示的 Wi-Fi，\n然后返回这里读取列表。设备可以使用任意名称。")
                                 .font(.footnote).foregroundStyle(.secondary).textSelection(.enabled)
                         }
                         Button { model.scan() } label: { Label("读取 session 列表", systemImage: "arrow.clockwise") }
@@ -197,7 +197,7 @@ struct BatchForm: View {
                     if metadata.title.isEmpty {
                         let s = sessions.first
                         metadata.title = [s?.dateLabel ?? "", s?.track ?? ""].filter { !$0.isEmpty }.joined(separator: " ")
-                        metadata.driver = UserDefaults.standard.string(forKey: "lastDriver") ?? "Tom"
+                        metadata.driver = UserDefaults.standard.string(forKey: "lastDriver") ?? ""
                         metadata.vehicle = UserDefaults.standard.string(forKey: "lastVehicle") ?? ""
                     }
                 }
@@ -332,8 +332,9 @@ struct SettingsView: View {
                 } header: { Text("Google Drive · 可选备份") }
                 footer: { Text("同一批文件上传到同一个子文件夹。这里列出本 App 已获授权的文件夹；可先创建专用目录。只有你点击上传，文件才会发往 Google Drive。") }
                 Section("连接 Solo") {
-                    LabeledContent("设备", value: "Solo 2 Tom")
-                    Text("Wi-Fi：AiM-SOLO2-012307-Solo 2 Tom").font(.footnote).textSelection(.enabled)
+                    LabeledContent("连接目标", value: "当前 Wi-Fi 上的 Solo")
+                    Text("连接设备屏幕显示的 Wi-Fi。不限制设备名称或序列号，无需将设备改名。")
+                        .font(.footnote)
                     Text("连接 Solo Wi-Fi 后关闭 LocalDevVPN。在「设置 → 隐私与安全性 → 本地网络」中允许 Solo Pocket；Cellular Data 是另外的蜂窝数据开关。下载时保持 App 在前台。")
                         .font(.footnote).foregroundStyle(.secondary)
                     Button("打开 App 系统设置") { if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) } }
@@ -346,7 +347,7 @@ struct SettingsView: View {
                     Text("原始 XRZ/XRK 和整批标注保存在你选择的本地父文件夹。默认位置为「文件 → 我的 iPhone → Solo Pocket → Solo Sessions」。新批次按记录日期、车手、车型命名；同名时加序号。已有批次保留原文件夹名。")
                     Text("手机检查传输完整性。详细遥测分析仍可用 Mac 上的 libxrk 读取原始文件。")
                         .font(.footnote).foregroundStyle(.secondary)
-                    LabeledContent("版本", value: "0.1.4")
+                    LabeledContent("版本", value: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "未知")
                 }
             }.navigationTitle("设置").disabled(model.busy)
                 .fileImporter(isPresented: $choosingLocalRoot, allowedContentTypes: [.folder]) { result in

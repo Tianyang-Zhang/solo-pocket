@@ -42,4 +42,20 @@ final class TransferTests: XCTestCase {
         do { try await SoloTransfer(stream: Replay(input)).read(expectedSize: 10) { _,_,_ in delivered = true }; XCTFail("Should reject mismatch") }
         catch { XCTAssertFalse(delivered) }
     }
+    func testUnknownHandshakeStopsBeforeSendingListOrFileCommand() async throws {
+        for path: String? in [nil, "1:/mem/a_0001.xrz"] {
+            let stream = Replay(frame(Data([0, 0, 0, 0, 6, 10, 0, 0])))
+            do {
+                try await SoloTransfer(stream: stream).read(path: path) { _, _, _ in
+                    XCTFail("An incompatible handshake must never deliver data")
+                }
+                XCTFail("An incompatible peer must be rejected regardless of device name")
+            } catch {
+                XCTAssertTrue(error.localizedDescription.contains("Solo 连接回应"))
+            }
+            let requests = await stream.requests
+            XCTAssertEqual(requests, [try SoloFrame.encode(payload: SoloFrame.handshake)],
+                           "Do not send the session-list or file command after a bad handshake")
+        }
+    }
 }

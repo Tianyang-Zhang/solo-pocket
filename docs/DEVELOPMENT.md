@@ -27,7 +27,7 @@ The build downloads Google Sign-In through Swift Package Manager. The direct dep
 
 ## Device scope
 
-The current app connects to `10.0.0.1`, using UDP port 36002 for discovery and TCP port 2000 for transfer. Its discovery guard expects `Solo 2 Tom`. Changing that guard or adding a device picker requires separate real-device validation.
+The app connects to the current device Wi-Fi access point at `10.0.0.1`, using UDP port 36002 for discovery and TCP port 2000 for transfer. Discovery accepts a nonempty response without parsing or matching a custom name, serial number or text encoding. It is a reachability step, not authentication. The existing TCP handshake must match before any list or file command is sent; frame checksums, transfer lengths and CSV parsing remain enforced. To select another Solo, join its Wi-Fi in iPhone Settings and read its list. Other hardware/firmware still needs physical compatibility testing.
 
 Read [protocol notes](PROTOCOL.md) before changing transport. Mock tests alone do not establish compatibility with another device or firmware. Diagnostics remain local to the phone unless the user exports them.
 

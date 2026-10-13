@@ -5,7 +5,7 @@ This is an experimental, unofficial interoperability implementation. No vendor a
 ## Connection
 
 - Device address: `10.0.0.1`.
-- Discovery: UDP `aim-ka` (six ASCII bytes, without a NUL) to port 36002. The response contains a device name; the current code checks for `Solo 2 Tom`.
+- Discovery: UDP `aim-ka` (six ASCII bytes, without a NUL) to port 36002. The response may contain arbitrary custom names and binary fields. Accept a nonempty response from the connected host/port without a name or serial-number allowlist. Compatibility is checked by the subsequent TCP handshake and transfer frames; a UDP response alone is not proof of a Solo identity.
 - Transfer: TCP port 2000.
 - iPhone reads and downloads first run a TCP-only local connection check, then discovery and the transfer protocol. Network parameters use the system-selected local route and prohibit cellular transport.
 - Initial STCP handshake payload: hexadecimal `0000000006080000`.

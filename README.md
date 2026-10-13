@@ -2,16 +2,17 @@
 
 用 iPhone 从 AiM Solo 2 读取 session、批量下载，并保存到系统「文件」App。
 
-[中文安装指南](#中文安装指南) · [English guide](#english-guide) · [下载 0.1.4 IPA](https://github.com/Tianyang-Zhang/solo-pocket/releases/download/v0.1.4/SoloPocket-0.1.4.ipa) · [中文 PDF](docs/installation-zh-CN.pdf)
+[中文安装指南](#中文安装指南) · [English guide](#english-guide) · [下载 0.1.5 IPA](https://github.com/Tianyang-Zhang/solo-pocket/releases/download/v0.1.5/SoloPocket-0.1.5.ipa) · [中文 PDF](docs/installation-zh-CN.pdf)
 
 ## 中文安装指南
 
 ### 当前版本与适用范围
 
-**0.1.4 是本仓库首次发布的版本，作者已确认在自己的 iPhone 和 Solo 2 上可用。** 仓库仅提供此版本的安装包。
+**0.1.5 已取消设备名称绑定。** 连接你的 Solo Wi-Fi 即可读取，不需要改设备名或登记序列号。此前 0.1.4 已在作者的 iPhone 和 Solo 2 上实测；0.1.5 的自动化测试和安装包检查见版本说明。
 
 - 原生 iPhone App，最低 iOS 17；界面目前为中文。
-- 已验证的硬件为一台 Solo 2，固件 02.44.26。当前程序的设备发现校验仍限定名称 **`Solo 2 Tom`**；尚未做通用设备选择，其它设备需要调整代码并验证。
+- 适用于使用兼容 Wi-Fi 下载协议的 Solo。通过手机系统选择设备的 Wi-Fi，程序访问其默认接入点地址 `10.0.0.1`。任意设备名均可，包括中文名称。
+- 实机基线为 Solo 2、固件 02.44.26。Solo 2 DL 等其它型号/固件可尝试同一连接流程，但尚未逐一实测；仅有 USB 连接的设备不在此 Wi-Fi 流程范围内。
 - 个人自用可通过 **AltStore Classic + Remote AltServer + LocalDevVPN** 安装，不需要付费 Apple Developer 会员。
 - Google Drive 是可选上传功能。当前安装包没有配置 Google OAuth，本地下载和文件管理可直接使用。
 - 本项目是非官方个人工具，与 AiM 没有关联。
@@ -31,7 +32,7 @@
 
 准备 Mac、iPhone、可传数据的 USB 线，以及自己的 Apple 账号。首次配置让电脑和手机连接普通联网 Wi-Fi。
 
-下载 [SoloPocket-0.1.4.ipa](https://github.com/Tianyang-Zhang/solo-pocket/releases/download/v0.1.4/SoloPocket-0.1.4.ipa)。如果 AltStore 和 Remote AltServer 已经配置好，直接跳到第 4 步。Release 中同时提供 `SHA256SUMS`；请选择 `.ipa` 安装包，不要下载源码 ZIP 当安装包。
+下载 [SoloPocket-0.1.5.ipa](https://github.com/Tianyang-Zhang/solo-pocket/releases/download/v0.1.5/SoloPocket-0.1.5.ipa)。如果 AltStore 和 Remote AltServer 已经配置好，直接跳到第 4 步。Release 中同时提供 `SHA256SUMS`；请选择 `.ipa` 安装包，不要下载源码 ZIP 当安装包。
 
 ### 2. 用 Mac 安装 AltStore Classic
 
@@ -57,7 +58,7 @@
 
 ### 4. 安装或更新 Solo Pocket
 
-1. 把下载的 `SoloPocket-0.1.4.ipa` 保存到 iPhone「文件」。可在手机上直接下载，或由 Mac 通过 AirDrop 传送。**保留 `.ipa` 后缀，不解压。**
+1. 把下载的 `SoloPocket-0.1.5.ipa` 保存到 iPhone「文件」。可在手机上直接下载，或由 Mac 通过 AirDrop 传送。**保留 `.ipa` 后缀，不解压。**
 2. 保持普通联网 Wi-Fi 和 LocalDevVPN 连接。
 3. 打开 **AltStore → My Apps → 左上角 +**，选择 IPA。
 4. 按提示使用安装 AltStore 时的同一个 Apple 账号，等待签名和安装完成，再打开 Solo Pocket。
@@ -109,11 +110,11 @@ Google Drive 无需配置即可完成以上步骤。当前包显示 Google Drive
 - **app in invalid format**：重新下载本页 Release 中的 IPA，确认没有选择源码 ZIP 或解压后的文件夹。
 - **-80045**：错误码本身不足以判断原因。保留完整报错，可先用 Mac 本地 AltServer 路径重试；不要把删除 App 当作第一步。
 - **读取列表超时**：确认 Solo Wi-Fi、VPN 已关闭、AimMac 未占用连接，并检查 **设置 → 隐私与安全性 → 本地网络 → Solo Pocket**。Cellular Data 不是本地网络权限。仍失败时在 App 中「导出最近连接日志」。
-- **其它 Solo 设备无法连接**：当前版本绑定设备名称 `Solo 2 Tom`，不是通用 AiM 下载器。
+- **其它 Solo 设备无法连接**：0.1.5 不再检查设备名字。请使用设备的 Wi-Fi 接入点模式；如果仍提示握手或数据格式不兼容，导出日志以确认该型号/固件的协议差异。
 
 ### 源码与发布说明
 
-构建、测试和可选 Google Drive 配置见[开发说明](docs/DEVELOPMENT.md)。公开仓库使用虚构演示 CSV，不包含个人下载记录或连接日志。Release 保留已实测安装包的可执行文件，只将内置演示 CSV 替换为虚构样本；完整包校验值因此不同，详见[版本说明](docs/RELEASE-0.1.4.md)。
+构建、测试和可选 Google Drive 配置见[开发说明](docs/DEVELOPMENT.md)。公开仓库使用虚构演示 CSV，不包含个人下载记录或连接日志。0.1.5 是从本仓库重新构建的版本，保留协议握手、文件长度与校验和检查；测试结果和验证范围见[版本说明](docs/RELEASE-0.1.5.md)。
 
 ---
 
@@ -121,10 +122,11 @@ Google Drive 无需配置即可完成以上步骤。当前包显示 Google Drive
 
 ### Current release and compatibility
 
-**0.1.4 is the first release in this repository. The author has confirmed that it works with their iPhone and Solo 2.** Only this version is distributed here.
+**0.1.5 removes the device-name restriction.** Join your Solo Wi-Fi and read sessions without renaming the device or registering its serial number. Version 0.1.4 was physically tested with the author's iPhone and Solo 2; see the release notes for 0.1.5 automated tests and package validation.
 
 - Native iPhone app, requiring iOS 17 or later. The app interface is currently in Chinese.
-- Tested with one Solo 2 running firmware 02.44.26. Discovery currently requires the device name **`Solo 2 Tom`**. There is no general device picker yet; other devices require code changes and validation.
+- Intended for Solo devices using a compatible Wi-Fi download protocol. Choose the device network in iPhone Settings; the app connects to its default access-point address, `10.0.0.1`. Any custom device name is accepted, including non-Latin names.
+- Physical validation is based on a Solo 2 with firmware 02.44.26. Other models/firmware, including Solo 2 DL, can attempt the same connection flow but have not been individually tested. USB-only devices are outside this Wi-Fi workflow.
 - Personal installation uses **AltStore Classic + Remote AltServer + LocalDevVPN** with a free Apple account. A paid Apple Developer membership is not required.
 - Google Drive upload is optional. The distributed app has no Google OAuth configuration; local downloads and file management work without it.
 - This is an unofficial personal project, not affiliated with AiM.
@@ -144,7 +146,7 @@ HRZ downloads and full telemetry analysis are not included. Device-reported lap 
 
 You need a Mac, an iPhone, a USB data cable and your own Apple account. Connect the Mac and iPhone to regular Wi-Fi with internet access during initial setup.
 
-Download [SoloPocket-0.1.4.ipa](https://github.com/Tianyang-Zhang/solo-pocket/releases/download/v0.1.4/SoloPocket-0.1.4.ipa). If AltStore and Remote AltServer are already configured, skip to step 4. The release also includes `SHA256SUMS`. Download the `.ipa` asset, not the source-code ZIP.
+Download [SoloPocket-0.1.5.ipa](https://github.com/Tianyang-Zhang/solo-pocket/releases/download/v0.1.5/SoloPocket-0.1.5.ipa). If AltStore and Remote AltServer are already configured, skip to step 4. The release also includes `SHA256SUMS`. Download the `.ipa` asset, not the source-code ZIP.
 
 ### 2. Install AltStore Classic using your Mac
 
@@ -170,7 +172,7 @@ After setup, normal installation and refresh do not require your own Mac to be o
 
 ### 4. Install or update Solo Pocket
 
-1. Save `SoloPocket-0.1.4.ipa` in the iPhone Files app. Download it directly on the phone or send it from your Mac using AirDrop. **Keep the `.ipa` extension; do not unzip it.**
+1. Save `SoloPocket-0.1.5.ipa` in the iPhone Files app. Download it directly on the phone or send it from your Mac using AirDrop. **Keep the `.ipa` extension; do not unzip it.**
 2. Stay connected to regular Wi-Fi with internet access and enable LocalDevVPN.
 3. Open **AltStore → My Apps → +** in the upper-left corner and select the IPA.
 4. If prompted, use the same Apple account used for AltStore. Wait for signing and installation, then open Solo Pocket.
@@ -222,8 +224,8 @@ If AltStore itself has expired and cannot open, reinstall AltStore from your Mac
 - **app in invalid format:** Download the IPA from this release again. Do not select the source ZIP or an extracted folder.
 - **-80045:** This code alone does not identify the cause. Keep the full error message and try the local Mac AltServer installation path. Do not start by deleting the app.
 - **Session-list timeout:** Check the Solo Wi-Fi connection, turn VPN off, close AimMac's connection, and check **Settings → Privacy & Security → Local Network → Solo Pocket**. Cellular Data is a different permission. Use **导出最近连接日志** (Export recent connection log) if it still fails.
-- **Another Solo device does not connect:** The current version expects the device name `Solo 2 Tom`; it is not a universal AiM downloader.
+- **Another Solo device does not connect:** 0.1.5 no longer checks its name. Use the device's Wi-Fi access-point mode. If a handshake or data-format error remains, export the log to identify model/firmware protocol differences.
 
 ### Source and release notes
 
-See the [development guide](docs/DEVELOPMENT.md) for builds, tests and optional Google Drive configuration. Public fixtures are synthetic; personal downloaded recordings and connection logs are not included. The release preserves the executable from the device-tested IPA and replaces only its bundled demo CSV with synthetic data. Consequently, the full IPA checksum differs. See [release notes](docs/RELEASE-0.1.4.md).
+See the [development guide](docs/DEVELOPMENT.md) for builds, tests and optional Google Drive configuration. Public fixtures are synthetic; personal downloaded recordings and connection logs are not included. Version 0.1.5 is rebuilt from this repository and retains handshake, file-length and checksum validation. See [release notes](docs/RELEASE-0.1.5.md) for test results and validation scope.
